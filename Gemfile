@@ -19,6 +19,11 @@ gem 'yelp'
 
 gem 'rspotify'
 
+gem 'omniauth'
+gem 'omniauth-spotify'
+
+gem 'pg', '~> 0.15'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -39,6 +44,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'simplecov', '~> 0.11.2'
+  gem 'dotenv-rails'
 end
 
 group :development do
