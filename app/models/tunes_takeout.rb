@@ -6,7 +6,7 @@ class TunesTakeout
   BASE_URL = "https://tunes-takeout-api.herokuapp.com/"
 
   def initialize
-    
+
   end
 
   # def self.yelp_search(city, query, limit, category = "restaurants")

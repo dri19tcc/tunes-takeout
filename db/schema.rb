@@ -11,17 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517175357) do
+ActiveRecord::Schema.define(version: 20160518193216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "foods", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "musics", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "suggestions", force: :cascade do |t|
+    t.string   "suggestion_id"
+    t.string   "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string   "provider",   default: "spotify", null: false
-    t.string   "uid",                            null: false
+    t.string   "provider",   default: "spotify",                                                                                   null: false
+    t.string   "uid",                                                                                                              null: false
     t.string   "name"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                                                                                                       null: false
+    t.datetime "updated_at",                                                                                                       null: false
+    t.string   "image_url",  default: "http://www.hiapphere.com/data/icon/201312/HiAppHere_com_com.spotify.mobile.android.ui.png"
   end
 
 end

@@ -8,12 +8,18 @@
 </head>
 <body>
   <h1>Tunes and Takeout</h1>
-  <%= "Hi #{ current_user.name }!" if current_user %>
+  <%= "Hi #{current_user.name}!" if current_user %>
+  <%= image_tag("#{current_user.image_url}", width: "70", height: "70", alt: "spotify avatar") if current_user %>
   <%= link_to "Home", root_path %>
   <%= link_to "Sign in with Spotify", '/auth/spotify' unless current_user %>
   <%= link_to "Log Out", logout_path, method: :delete if current_user %>
+  <%= link_to "suggestions", suggestions_path %>
 
 <%= yield %>
+
+<% flash.each do |key, msg| %>
+  <%= content_tag :div, msg, :id => key %>
+<% end %>
 
 </body>
 </html>
