@@ -22,6 +22,8 @@ gem 'rspotify'
 gem 'omniauth'
 gem 'omniauth-spotify'
 
+gem 'omniauth-oauth2', '~> 1.3.1'
+
 gem 'pg', '~> 0.15'
 
 # Use jquery as the JavaScript library
@@ -61,5 +63,5 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'pg', '~> 0.15'
+  # gem 'pg', '~> 0.15'
 end

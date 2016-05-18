@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users #:only[:show, :index]
 
-  get "/auth/:provider/callback" => "sessions#create"
+  get "/auth/spotify/callback" => "sessions#create"
   delete "/logout" => "sessions#destroy"
 
 end
