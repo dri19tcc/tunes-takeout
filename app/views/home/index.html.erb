@@ -2,12 +2,14 @@
 
 <% @top_favorites.each do |top_favorite| %>
   <p>
-    <%= image_tag(top_favorite[:business_image], alt: "#{top_favorite[:business_image]} food picture") %>
+    <%= link_to(image_tag(top_favorite[:business_image], alt: "#{top_favorite[:business_image]} food picture"), top_favorite[:business_url]) %>
     <%= top_favorite[:business_name] %>
     <%= image_tag(top_favorite[:business_rating_image], alt: "rating image") %>
     You should listen to
-    <%= top_favorite[:music_name] %>
+    <%= top_favorite[:music_name] %> by
+    <%= top_favorite[:music_artist] %>
     while you eat here!
+    <%= link_to(image_tag(top_favorite[:music_image], width: "64", height: "64"), top_favorite[:music_url]) %>
     <%#= top_favorite[:music_type] %>
   </p>
 <% end %>
