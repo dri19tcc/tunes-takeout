@@ -1,3 +1,5 @@
+require 'tunes_takeout'
+
 class SuggestionsController < ApplicationController
   def index
     @choices = TunesTakeoutWrapper.spotify_search(params[:query], params[:limit])

@@ -11,6 +11,9 @@ Bundler.require(*Rails.groups)
 module TunesTakeout
   class Application < Rails::Application
 
+    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += %W(#{config.root}/extras)
+
     config.active_record.raise_in_transactional_callbacks = true
   end
 end

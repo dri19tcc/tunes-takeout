@@ -10,10 +10,14 @@ module TunesTakeoutWrapper
   end
 
   def self.favorites(user_id)
-    response = HTTParty.get(BASE_URL + "v1/suggestions/#{suggest}").parsed_response
+    HTTParty.get(BASE_URL + "v1/suggestions/#{suggest}").parsed_response
   end
 
   def self.top_suggest(limit = 10)
     HTTParty.get(BASE_URL + "v1/suggestions/top?limit=#{limit}").parsed_response
+  end
+
+  def self.find_suggest(suggestion_id)
+    HTTParty.get(BASE_URL + "v1/suggestions/#{suggestion_id}").parsed_response
   end
 end
