@@ -8,8 +8,10 @@
   <%= submit_tag %>
 <% end %>
 
-<% if @yelp %>
-  You should go to <%= @yelp.business.name %> if you want <%= params[:query] %>.
-  While you are there, you should listen to the
-  <%= @choices["suggestions"].first["music_type"] %> <%= @spotify.name %>.
+<% if @suggestions %>
+  <% @suggestions.each do |suggestion| %>
+    <p>You should go to <%= suggestion[:business_name] %> if you want <%= params[:query] %>.
+    While you are there, you should listen to the
+    <%= suggestion[:music_type] %> <%= suggestion[:music_name] %>.</p>
+  <% end %>
 <% end %>

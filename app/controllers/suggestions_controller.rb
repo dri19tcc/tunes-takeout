@@ -14,9 +14,6 @@ class SuggestionsController < ApplicationController
         sugg[:music_type] = hash_id["music_type"]
         @suggestions << sugg
       end
-      raise
-      # @yelp = Food.yelp_find(@choices["suggestions"]).first["food_id"])
-      # @spotify = Music.spotify_find(@choices["suggestions"]).first["music_type"], @choices["suggestions"].first["music_id"])
     end
   end
 
