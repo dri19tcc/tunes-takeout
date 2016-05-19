@@ -1,4 +1,6 @@
-class Food < ActiveRecord::Base
+require 'yelp'
+
+class Food #< ActiveRecord::Base
   def self.yelp_find(business)
     Yelp.client.business(business)
   end

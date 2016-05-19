@@ -1,0 +1,23 @@
+require 'httparty'
+require 'yelp'
+require 'rspotify'
+
+module TunesTakeoutWrapper
+  BASE_URL = "https://tunes-takeout-api.herokuapp.com/"
+
+  def self.yelp_find(business)
+    Yelp.client.business(business)
+  end
+
+  def self.spotify_search(query, limit)
+    HTTParty.get(BASE_URL + "v1/suggestions/search?query=#{query}&limit=#{limit}").parsed_response
+  end
+
+  def self.favorites(user_id)
+    response = HTTParty.get(BASE_URL + "v1/suggestions/#{suggest}").parsed_response
+  end
+
+  def self.top_suggest(limit = 10)
+
+  end
+end

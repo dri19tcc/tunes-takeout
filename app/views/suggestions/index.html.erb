@@ -1,6 +1,15 @@
-<h3>Most Popular Suggestions!</h3>
-<%= form_tag suggestions_path do %>
-  <%= label_tag :food %>
-  <%= text_field_tag :food %>
+<%= form_tag suggestions_path, method: :get do %>
+  <%= label_tag :query %>
+  <%= text_field_tag :query %>
+
+  <%= label_tag :limit %>
+  <%= text_field_tag :limit %>
+
   <%= submit_tag %>
+<% end %>
+
+<% if @yelp %>
+  You should go to <%= @yelp.business.name %> if you want <%= params[:query] %>.
+  While you are there, you should listen to the
+  <%= @choices["suggestions"].first["music_type"] %> <%= @spotify.name %>.
 <% end %>
