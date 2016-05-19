@@ -10,8 +10,8 @@
 
 <% if @suggestions %>
   <% @suggestions.each do |suggestion| %>
-    <p>You should go to <%= suggestion[:business_name] %> if you want <%= params[:query] %>.
+    <p><%= suggestion[:business_image] %>  <%= suggestion[:business_rating_image] %> You should go to <%= suggestion[:business_name] %> if you want <%= params[:query] %>.
     While you are there, you should listen to the
-    <%= suggestion[:music_type] %> <%= suggestion[:music_name] %>.</p>
+    <%= suggestion[:music_type] %> <%= suggestion[:music_name] %>.  <%= suggestion[:music_image] %></p>
   <% end %>
 <% end %>

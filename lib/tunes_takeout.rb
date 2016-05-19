@@ -1,6 +1,6 @@
 require 'httparty'
-require 'yelp'
-require 'rspotify'
+# require 'yelp'
+# require 'rspotify'
 
 module TunesTakeoutWrapper
   BASE_URL = "https://tunes-takeout-api.herokuapp.com/"

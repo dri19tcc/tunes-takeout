@@ -2,18 +2,31 @@
 <html>
 <head>
   <title>TunesTakeout</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
-<body>
-  <h1>Tunes and Takeout</h1>
-  <%= "Hi #{current_user.name}!" if current_user %>
-  <%= image_tag("#{current_user.image_url}", width: "70", height: "70", alt: "spotify avatar") if current_user %>
-  <%= link_to "Home", root_path %>
-  <%= link_to "Sign in with Spotify", '/auth/spotify' unless current_user %>
-  <%= link_to "Log Out", logout_path, method: :delete if current_user %>
-  <%= link_to "Suggestions", suggestions_path %>
+<body role="document">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <%= "Hi #{current_user.name}!" if current_user %>
+      <%= image_tag("#{current_user.image_url}", width: "70", height: "70", alt: "spotify avatar") if current_user %>
+      <span class="label label-default"><%= link_to "Home", root_path %></span>
+      <%= link_to "Sign in with Spotify", '/auth/spotify' unless current_user %>
+      <%= link_to "Log Out", logout_path, method: :delete if current_user %>
+      <%= link_to "Suggestions", suggestions_path %>
+    </div>
+  </nav>
+  <div class="container theme-showcase" role="main">
+    <div class="jumbo-tron">
+      <h1>Tunes and Takeout</h1>
+      <p>
+        Info about Tunes and Takeout.  Yay, it's looking like a real page!
+      </p>
+    </div>
+  </div>
 
 <%= yield %>
 
