@@ -10,8 +10,10 @@
 
 <% if @suggestions %>
   <% @suggestions.each do |suggestion| %>
-    <p><%= suggestion[:business_image] %>  <%= suggestion[:business_rating_image] %> You should go to <%= suggestion[:business_name] %> if you want <%= params[:query] %>.
-    While you are there, you should listen to the
-    <%= suggestion[:music_type] %> <%= suggestion[:music_name] %>.  <%= suggestion[:music_image] %></p>
+    <p>
+      <%= image_tag(suggestion[:business_image], alt: "#{suggestion[:business_image]} food image") %>  <%= image_tag(suggestion[:business_rating_image], alt: "rating image") %> You should go to <%= suggestion[:business_name] %> if you want <%= params[:query] %>.
+      While you are there, you should listen to the
+      <%= suggestion[:music_type] %> <%= suggestion[:music_name] %>.  <%= suggestion[:music_image] %>
+    </p>
   <% end %>
 <% end %>

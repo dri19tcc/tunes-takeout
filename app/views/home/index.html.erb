@@ -1,5 +1,13 @@
 <h2>Top Suggestions</h2>
 
-<%# @top_favorites.each do |top_favorite| %>
-  <%#= top_favorite[:business_name], top_favorite[:business_image]%>
-<%# end %>
+<% @top_favorites.each do |top_favorite| %>
+  <p>
+    <%= image_tag(top_favorite[:business_image], alt: "#{top_favorite[:business_image]} food picture") %>
+    <%= top_favorite[:business_name] %>
+    <%= image_tag(top_favorite[:business_rating_image], alt: "rating image") %>
+    You should listen to
+    <%= top_favorite[:music_name] %>
+    while you eat here!
+    <%#= top_favorite[:music_type] %>
+  </p>
+<% end %>

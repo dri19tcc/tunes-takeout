@@ -17,8 +17,8 @@ class SuggestionsController < ApplicationController
         sugg[:business_phone] = yelp.business.phone
         sugg[:music_name] = spotify.name
         sugg[:music_type] = hash_id["music_type"]
-        top_sugg[:music_image] = spotify.images[2]["url"]
-        
+        # top_sugg[:music_image] = spotify.images[2]["url"]
+
         @suggestions << sugg
       end
     end
