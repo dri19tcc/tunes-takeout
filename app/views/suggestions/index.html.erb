@@ -10,23 +10,6 @@
 
 <% if @suggestions %>
   <% @suggestions.each do |suggestion| %>
-    <p>
-      <%= link_to(image_tag(suggestion[:business_image], alt: "#{suggestion[:business_image]} food image"), suggestion[:business_url], target: '_blank') %>
-      <%= image_tag(suggestion[:business_rating_image], alt: "rating image") %>
-      You should go to
-      <%= suggestion[:business_name] %>
-      if you want
-      <%= params[:query] %>.
-      While you are there, you should listen to the
-      <%= suggestion[:music_type] %>
-      <%= suggestion[:music_name] %>
-      by
-      <%= suggestion[:music_artist] %>.
-      <%= link_to(image_tag(suggestion[:music_image], alt: "album image}"), suggestion[:music_url], target: '_blank') %>
-
-      <% if !current_user.nil? %>
-        <%= button_to "Add to Favorites", favorite_path(current_user.uid), params: { suggestion: suggestion[:suggestion_id] }, form: { "data-type" => "json"} %>
-      <% end %>
-    </p>
+    <%= render partial: "shared/suggestions", locals: { partial_variable: suggestion } %>
   <% end %>
 <% end %>
