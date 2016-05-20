@@ -17,6 +17,8 @@ gem 'httparty'
 
 gem 'yelp'
 
+gem 'jquery-rails'
+
 gem 'rspotify'
 
 gem 'omniauth'

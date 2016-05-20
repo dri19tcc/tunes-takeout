@@ -18,6 +18,10 @@ module TunesTakeoutWrapper
     :headers => { 'Content-Type' => 'application/json' }).parsed_response
   end
 
+  def self.delete_favorites(user_id, suggestion_id)
+    HTTParty.delete(BASE_URL + "/v1/users/#{user_id}/favorites", :body => { :suggestion => suggestion_id }.to_json, :headers => { 'Content-Type' => 'application/json' }).parsed_response
+  end
+
   def self.top_suggest(limit = 10)
     HTTParty.get(BASE_URL + "v1/suggestions/top?limit=#{limit}").parsed_response
   end

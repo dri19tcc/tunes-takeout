@@ -43,6 +43,12 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def destroy
+    TunesTakeoutWrapper.delete_favorites(current_user.uid, params[:suggestion])
+    flash[:boo] = "Favorite Deleted"
+    redirect_to users_path
+  end
+
   def show
 
   end
