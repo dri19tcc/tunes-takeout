@@ -18,6 +18,7 @@ class UsersController < ApplicationController
       fave_sugg[:business_phone] = yelp.business.phone
       fave_sugg[:music_name] = spotify.name
       fave_sugg[:music_type] = spotify.type
+      fave_sugg[:music_embed] = spotify.uri
       if spotify.type == "artist"
         fave_sugg[:music_artist] = nil
       else

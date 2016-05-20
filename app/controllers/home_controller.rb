@@ -25,6 +25,8 @@ class HomeController < ApplicationController
       top_sugg[:business_phone] = yelp.business.phone
       top_sugg[:music_name] = spotify.name
       top_sugg[:music_type] = spotify.type
+      top_sugg[:music_embed] = spotify.uri
+
       if spotify.type == "artist"
         top_sugg[:music_artist] = nil
       else

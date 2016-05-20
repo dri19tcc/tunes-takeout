@@ -5,10 +5,12 @@
   <%= image_tag(partial_variable[:business_rating_image], alt: "rating image") %>
   You should listen to the
   <%= partial_variable[:music_type] %> by
-  <%= partial_variable[:music_name] %> by
+  <%= link_to(partial_variable[:music_name], partial_variable[:music_url], target: '_blank') %> by
   <%= partial_variable[:music_artist] %>
   while you eat here!
-  <%= link_to(image_tag(partial_variable[:music_image], width: "64", height: "64"), partial_variable[:music_url], target: '_blank') %>
+  <%#= link_to(image_tag(partial_variable[:music_image], width: "64", height: "64"), partial_variable[:music_url], target: '_blank') %>
+
+  <iframe src="https://embed.spotify.com/?uri=<%=partial_variable[:music_embed] %>" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
 
   <% if !current_user.nil? %>
     <% if delete_button  %>

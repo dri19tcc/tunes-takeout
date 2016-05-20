@@ -19,6 +19,8 @@ class SuggestionsController < ApplicationController
         sugg[:business_phone] = yelp.business.phone
         sugg[:music_name] = spotify.name
         sugg[:music_type] = spotify.type
+        sugg[:music_embed] = spotify.uri
+
         if spotify.type == "artist"
           sugg[:music_artist] = nil
         else
