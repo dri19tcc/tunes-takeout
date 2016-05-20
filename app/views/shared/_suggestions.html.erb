@@ -1,6 +1,7 @@
 <p>
   <%= link_to(image_tag(partial_variable[:business_image], alt: "#{partial_variable[:business_image]} food picture"), partial_variable[:business_url], target: '_blank') %>
   <%= partial_variable[:business_name] %>
+  <%= number_to_phone(partial_variable[:business_phone], area_code: true) %>
   <%= image_tag(partial_variable[:business_rating_image], alt: "rating image") %>
   You should listen to
   <%= partial_variable[:music_name] %> by
