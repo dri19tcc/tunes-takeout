@@ -13,7 +13,9 @@
     while you eat here!
     <%= link_to(image_tag(your_favorite[:music_image], width: "64", height: "64"), your_favorite[:music_url], target: '_blank') %>
 
-    <%= button_to "Delete Favorite", favorites_path(current_user.uid), params: { suggestion: your_favorite[:suggestion_id] }, :method => :delete, data: {confirm: "Are you sure?"} %>
+    <% if !current_user.nil? %>
+      <%= button_to "Delete Favorite", favorites_path(current_user.uid), params: { suggestion: your_favorite[:suggestion_id] }, :method => :delete, data: {confirm: "Are you sure?"} %>
+    <% end %>
     <%#= your_favorite[:music_type] %>
   </p>
 <% end %>

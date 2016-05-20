@@ -11,8 +11,9 @@
     while you eat here!
     <%= link_to(image_tag(top_favorite[:music_image], width: "64", height: "64", alt: "album image"), top_favorite[:music_url]) %>
 
-    <%= button_to "Add to Favorites", favorite_path(current_user.uid), params: { suggestion: top_favorite[:suggestion_id] }, form: { "data-type" => "json"} %>
-
+    <% if !current_user.nil? %>
+      <%= button_to "Add to Favorites", favorite_path(current_user.uid), params: { suggestion: top_favorite[:suggestion_id] }, form: { "data-type" => "json"} %>
+    <% end %>
     <%#= top_favorite[:music_type] %>
   </p>
 <% end %>
