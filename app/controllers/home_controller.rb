@@ -17,6 +17,7 @@ class HomeController < ApplicationController
       top_sugg = {}
       yelp = Food.yelp_find(top_idea["food_id"])
       spotify = Music.spotify_find(top_idea["music_type"], top_idea["music_id"])
+      top_sugg[:suggestion_id] = top_idea["id"]
       top_sugg[:business_name] = yelp.business.name
       top_sugg[:business_url] = yelp.business.url
       top_sugg[:business_image] = yelp.business.image_url

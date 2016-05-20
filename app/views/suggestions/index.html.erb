@@ -11,9 +11,19 @@
 <% if @suggestions %>
   <% @suggestions.each do |suggestion| %>
     <p>
-      <%= image_tag(suggestion[:business_image], alt: "#{suggestion[:business_image]} food image") %>  <%= image_tag(suggestion[:business_rating_image], alt: "rating image") %> You should go to <%= suggestion[:business_name] %> if you want <%= params[:query] %>.
+      <%= image_tag(suggestion[:business_image], alt: "#{suggestion[:business_image]} food image") %>
+      <%= image_tag(suggestion[:business_rating_image], alt: "rating image") %>
+      You should go to
+      <%= suggestion[:business_name] %>
+      if you want
+      <%= params[:query] %>.
       While you are there, you should listen to the
-      <%= suggestion[:music_type] %> <%= suggestion[:music_name] %>.  <%= suggestion[:music_image] %>
+      <%= suggestion[:music_type] %>
+      <%= suggestion[:music_name] %>
+      by
+      <%= suggestion[:music_artist] %>.
+      <%= image_tag(suggestion[:music_image]) %>
+      <%= button_to "Add to Favorites", favorite_path(current_user.uid) %>
     </p>
   <% end %>
 <% end %>

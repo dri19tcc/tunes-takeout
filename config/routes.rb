@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users #:only[:show, :index]
   resources :suggestions
 
+  post "users/:user_id/favorites" => "users#favorite", as: :favorite
   get "/auth/spotify/callback" => "sessions#create"
   delete "/logout" => "sessions#destroy"
 
