@@ -1,6 +1,17 @@
-<h1>Your Favorites</h1>
+<!-- <h1>Your Favorites</h1> -->
 
-<h2>The Most Popular Suggestions</h2>
-<%# @user_favorites.each do |url| %>
-  <%#= @user_favorites %>
-<%# end %>
+<h2>Your Favorite Places to Eat and Accompanying Music </h2>
+
+<% @your_favorites.each do |your_favorite| %>
+  <p>
+    <%= link_to(image_tag(your_favorite[:business_image], alt: "#{your_favorite[:business_image]} food picture"), your_favorite[:business_url], target: '_blank') %>
+    <%= your_favorite[:business_name] %>
+    <%= image_tag(your_favorite[:business_rating_image], alt: "rating image") %>
+    You should listen to
+    <%= your_favorite[:music_name] %> by
+    <%= your_favorite[:music_artist] %>
+    while you eat here!
+    <%= link_to(image_tag(your_favorite[:music_image], width: "64", height: "64"), your_favorite[:music_url], target: '_blank') %>
+    <%#= your_favorite[:music_type] %>
+  </p>
+<% end %>

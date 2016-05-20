@@ -29,11 +29,12 @@
     </div>
   </div>
 
+  <% flash.each do |key, msg| %>
+  <%= content_tag :div, msg, :id => key %>
+  <% end %>
+  
 <%= yield %>
 
-<% flash.each do |key, msg| %>
-  <%= content_tag :div, msg, :id => key %>
-<% end %>
 
 </body>
 </html>

@@ -1,9 +1,9 @@
 <%= form_tag suggestions_path, method: :get do %>
-  <%= label_tag :query %>
-  <%= text_field_tag :query %>
+  <%= label_tag :query, "Food Craving" %>
+  <%= text_field_tag :query, '', :required => true %>
 
   <%= label_tag :limit %>
-  <%= text_field_tag :limit %>
+  <%= number_field_tag :limit, '', :required => true, min: 1, max: 100 %>
 
   <%= submit_tag %>
 <% end %>
@@ -11,7 +11,7 @@
 <% if @suggestions %>
   <% @suggestions.each do |suggestion| %>
     <p>
-      <%= image_tag(suggestion[:business_image], alt: "#{suggestion[:business_image]} food image") %>
+      <%= link_to(image_tag(suggestion[:business_image], alt: "#{suggestion[:business_image]} food image"), suggestion[:business_url], target: '_blank') %>
       <%= image_tag(suggestion[:business_rating_image], alt: "rating image") %>
       You should go to
       <%= suggestion[:business_name] %>
@@ -22,8 +22,9 @@
       <%= suggestion[:music_name] %>
       by
       <%= suggestion[:music_artist] %>.
-      <%= image_tag(suggestion[:music_image]) %>
-      <%= button_to "Add to Favorites", favorite_path(current_user.uid) %>
+      <%= link_to(image_tag(suggestion[:music_image], alt: "album image}"), suggestion[:music_url], target: '_blank') %>
+
+      <%= button_to "Add to Favorites", favorite_path(current_user.uid), params: { suggestion: suggestion[:suggestion_id] }, form: { "data-type" => "json"} %>
     </p>
   <% end %>
 <% end %>

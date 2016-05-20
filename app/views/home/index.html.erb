@@ -2,14 +2,15 @@
 
 <% @top_favorites.each do |top_favorite| %>
   <p>
-    <%= link_to(image_tag(top_favorite[:business_image], alt: "#{top_favorite[:business_image]} food picture"), top_favorite[:business_url]) %>
+    <%= link_to(image_tag(top_favorite[:business_image], alt: "#{top_favorite[:business_image]} food picture"), top_favorite[:business_url], target: '_blank') %>
     <%= top_favorite[:business_name] %>
     <%= image_tag(top_favorite[:business_rating_image], alt: "rating image") %>
     You should listen to
     <%= top_favorite[:music_name] %> by
     <%= top_favorite[:music_artist] %>
     while you eat here!
-    <%= link_to(image_tag(top_favorite[:music_image], width: "64", height: "64"), top_favorite[:music_url]) %>
+    <%= link_to(image_tag(top_favorite[:music_image], width: "64", height: "64", alt: "album image"), top_favorite[:music_url]) %>
+
     <%= button_to "Add to Favorites", favorite_path(current_user.uid), params: { suggestion: top_favorite[:suggestion_id] }, form: { "data-type" => "json"} %>
 
     <%#= top_favorite[:music_type] %>

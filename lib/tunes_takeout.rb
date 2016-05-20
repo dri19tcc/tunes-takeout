@@ -5,7 +5,7 @@ require 'httparty'
 module TunesTakeoutWrapper
   BASE_URL = "https://tunes-takeout-api.herokuapp.com/"
 
-  def self.spotify_search(query, limit)
+  def self.spotify_search(query, limit = 10)
     HTTParty.get(BASE_URL + "v1/suggestions/search?query=#{query}&limit=#{limit}").parsed_response
   end
 
