@@ -2,6 +2,6 @@
 
   <p>
     <% @top_favorites.each do |top_favorite| %>
-      <%= render partial: "shared/suggestions", locals: { partial_variable: top_favorite } %>
+      <%= render partial: "shared/suggestions", locals: { partial_variable: top_favorite, delete_button: false } %>
     <% end %>
   </p>

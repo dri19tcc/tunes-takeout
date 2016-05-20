@@ -10,6 +10,6 @@
 
 <% if @suggestions %>
   <% @suggestions.each do |suggestion| %>
-    <%= render partial: "shared/suggestions", locals: { partial_variable: suggestion } %>
+    <%= render partial: "shared/suggestions", locals: { partial_variable: suggestion, delete_button: false } %>
   <% end %>
 <% end %>

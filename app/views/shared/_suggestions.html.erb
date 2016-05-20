@@ -9,7 +9,10 @@
   <%= link_to(image_tag(partial_variable[:music_image], width: "64", height: "64"), partial_variable[:music_url], target: '_blank') %>
 
   <% if !current_user.nil? %>
-    <%= button_to "Add to Favorites", favorite_path(current_user.uid), params: { suggestion: partial_variable[:suggestion_id] }, form: { "data-type" => "json"} %>
+    <% if delete_button  %>
+      <%= button_to "Delete Favorite", favorites_path(current_user.uid), params: { suggestion: partial_variable[:suggestion_id] }, :method => :delete, data: {confirm: "Are you sure?"} %>
+    <% else %>
+      <%= button_to "Add to Favorites", favorite_path(current_user.uid), params: { suggestion: partial_variable[:suggestion_id] }, form: { "data-type" => "json"} %>
+    <% end %>
   <% end %>
-  <%#= partial_variable[:music_type] %>
 </p>

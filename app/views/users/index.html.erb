@@ -4,6 +4,6 @@
 
 <% if @your_favorites %>
   <% @your_favorites.each do |your_favorite| %>
-    <%= render partial: "shared/suggestions", locals: { partial_variable: your_favorite } %>
+    <%= render partial: "shared/suggestions", locals: { partial_variable: your_favorite, delete_button: true } %>
   <% end %>
 <% end %>
