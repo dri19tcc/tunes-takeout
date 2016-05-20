@@ -8,5 +8,8 @@
   while you eat here!
   <%= link_to(image_tag(partial_variable[:music_image], width: "64", height: "64"), partial_variable[:music_url], target: '_blank') %>
 
+  <% if !current_user.nil? %>
+    <%= button_to "Add to Favorites", favorite_path(current_user.uid), params: { suggestion: partial_variable[:suggestion_id] }, form: { "data-type" => "json"} %>
+  <% end %>
   <%#= partial_variable[:music_type] %>
 </p>

@@ -15,8 +15,7 @@ module TunesTakeoutWrapper
 
   def self.create_favorites(user_id, suggestion_id)
     #response =
-    HTTParty.post(BASE_URL + "/v1/users/#{user_id}/favorites", :body => { :suggestion => suggestion_id }.to_json,
-    :headers => { 'Content-Type' => 'application/json' }).parsed_response
+    HTTParty.post(BASE_URL + "/v1/users/#{user_id}/favorites", :body => { :suggestion => suggestion_id }.to_json, :headers => { 'Content-Type' => 'application/json' }).parsed_response
     #response.code
   end
 
