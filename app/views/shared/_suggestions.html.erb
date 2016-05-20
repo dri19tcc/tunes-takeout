@@ -3,7 +3,8 @@
   <%= partial_variable[:business_name] %>
   <%= number_to_phone(partial_variable[:business_phone], area_code: true) %>
   <%= image_tag(partial_variable[:business_rating_image], alt: "rating image") %>
-  You should listen to
+  You should listen to the
+  <%= partial_variable[:music_type] %> by
   <%= partial_variable[:music_name] %> by
   <%= partial_variable[:music_artist] %>
   while you eat here!
