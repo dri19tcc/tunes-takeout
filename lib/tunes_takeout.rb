@@ -14,13 +14,13 @@ module TunesTakeoutWrapper
   end
 
   def self.create_favorites(user_id, suggestion_id)
-    #response =
-    HTTParty.post(BASE_URL + "/v1/users/#{user_id}/favorites", :body => { :suggestion => suggestion_id }.to_json, :headers => { 'Content-Type' => 'application/json' }).parsed_response
-    #response.code
+    response = HTTParty.post(BASE_URL + "/v1/users/#{user_id}/favorites", :body => { :suggestion => suggestion_id }.to_json, :headers => { 'Content-Type' => 'application/json' })
+    return response
   end
 
   def self.delete_favorites(user_id, suggestion_id)
-    HTTParty.delete(BASE_URL + "/v1/users/#{user_id}/favorites", :body => { :suggestion => suggestion_id }.to_json, :headers => { 'Content-Type' => 'application/json' }).parsed_response
+    response = HTTParty.delete(BASE_URL + "/v1/users/#{user_id}/favorites", :body => { :suggestion => suggestion_id }.to_json, :headers => { 'Content-Type' => 'application/json' })
+    return response
   end
 
   def self.top_suggest(limit = 10)

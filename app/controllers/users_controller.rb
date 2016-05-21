@@ -40,14 +40,22 @@ class UsersController < ApplicationController
   end
 
   def favorite
-    TunesTakeoutWrapper.create_favorites(current_user.uid, params[:suggestion])
-    flash[:yay] = "New Favorite Saved!"
+    response = TunesTakeoutWrapper.create_favorites(current_user.uid, params[:suggestion])
+      if response.code == 201
+        flash[:yay] = "New Favorite Saved"
+      else
+        flash[:nope] = "Something Went Wrong"
+      end
     redirect_to users_path
   end
 
   def destroy
-    TunesTakeoutWrapper.delete_favorites(current_user.uid, params[:suggestion])
-    flash[:boo] = "Favorite Deleted"
+    response = TunesTakeoutWrapper.delete_favorites(current_user.uid, params[:suggestion])
+    if response.code == 204
+      flash[:yay] = "Favorite Deleted #{response.code}"
+    else
+      flash[:nope] = "Something Went Wrong #{response.code}"
+    end
     redirect_to users_path
   end
 
