@@ -19,21 +19,22 @@ class UsersController < ApplicationController
       fave_sugg[:music_name] = spotify.name
       fave_sugg[:music_type] = spotify.type
       fave_sugg[:music_embed] = spotify.uri
+      fave_sugg[:music_url] = spotify.external_urls["spotify"]
+
       if spotify.type == "artist"
         fave_sugg[:music_artist] = nil
       else
         fave_sugg[:music_artist] = spotify.artists[0].name
       end
-      fave_sugg[:music_url] = spotify.external_urls["spotify"]
+
       if spotify.type == "album"
         fave_sugg[:music_image] = spotify.images[2]["url"]
       elsif spotify.type == "artist"
         fave_sugg[:music_image] = "http://www.shootersconnectionstore.com/App_Themes/SC_Responsive/Images/no-thumbnail-available.png"
       elsif spotify.type == "track"
         fave_sugg[:music_image] = spotify.album.images[2]["url"]
-      else
-        fave_sugg[:music_image] = spotify.albums.images[2]["url"]
       end
+
       @your_favorites << fave_sugg
     end
   end

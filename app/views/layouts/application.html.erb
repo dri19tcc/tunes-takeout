@@ -14,7 +14,7 @@
       <div class="container">
         <% if current_user.nil? %>
           <%= link_to("Hello, please sign in!", "https://www.spotify.com/us/account/overview/") %>
-          <%= link_to(image_tag("/images/spotify-user-logo.jpeg", width: "64", height: "64", alt: "spotify avatar")," https://www.spotify.com/us/account/overview/") %>
+          <%= link_to(image_tag("/assets/spotify-user-logo.jpeg", width: "64", height: "64", alt: "spotify avatar")," https://www.spotify.com/us/account/overview/") %>
         <% else %>
           <%= link_to("Hi #{current_user.name}!", "https://www.spotify.com/us/account/overview/") %>
           <%= link_to(image_tag("#{current_user.image_url}", width: "64", height: "64", alt: "spotify avatar")," https://www.spotify.com/us/account/overview/") %>

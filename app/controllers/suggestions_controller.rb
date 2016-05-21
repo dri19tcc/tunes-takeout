@@ -20,23 +20,21 @@ class SuggestionsController < ApplicationController
         sugg[:music_name] = spotify.name
         sugg[:music_type] = spotify.type
         sugg[:music_embed] = spotify.uri
+        sugg[:music_url] = spotify.external_urls["spotify"]
 
         if spotify.type == "artist"
           sugg[:music_artist] = nil
         else
           sugg[:music_artist] = spotify.artists[0].name
         end
-        sugg[:music_url] = spotify.external_urls["spotify"]
+
         if spotify.type == "album"
           sugg[:music_image] = spotify.images[2]["url"]
         elsif spotify.type == "artist"
           sugg[:music_image] = "http://www.shootersconnectionstore.com/App_Themes/SC_Responsive/Images/no-thumbnail-available.png"
         elsif spotify.type == "track"
           sugg[:music_image] = spotify.album.images[2]["url"]
-        else
-          sugg[:music_image] = spotify.albums.images[2]["url"]
         end
-        # sugg[:music_image] = spotify.images[2]["url"]
 
         @suggestions << sugg
       end

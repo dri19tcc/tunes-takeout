@@ -10,7 +10,7 @@
   while you eat here!
   <%#= link_to(image_tag(partial_variable[:music_image], width: "64", height: "64"), partial_variable[:music_url], target: '_blank') %>
 
-  <iframe src="https://embed.spotify.com/?uri=<%=partial_variable[:music_embed] %>" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+  <iframe src="https://embed.spotify.com/?uri=<%= partial_variable[:music_embed] %>" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
 
   <% if !current_user.nil? %>
     <% if delete_button  %>
