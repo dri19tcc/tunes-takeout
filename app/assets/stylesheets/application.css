@@ -7,9 +7,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-h {
-  height: 55rem;
+  height: 65rem;
+  /*padding: 2rem 0rem;*/
 }
 
 body {
   background-color: #ccc;
+}
+
+.card-p {
+  padding: 3rem 0rem;
 }
