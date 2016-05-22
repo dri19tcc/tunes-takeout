@@ -1,5 +1,5 @@
 
-<div class="col-sm-6 col-md-4 clearfix text-center">
+<div class="col-sm-6 col-md-4 clearfix text-center card-h">
   <div class="thumbnail">
     <%= link_to(image_tag(partial_variable[:business_image], alt: "#{partial_variable[:business_image]} food picture", class: "thumnail"), partial_variable[:business_url], target: '_blank') %>
     <div class="caption">
@@ -38,9 +38,13 @@
     <div class="form-actions">
       <% if !current_user.nil? %>
         <% if delete_button  %>
-          <%= button_to "Delete Favorite", favorites_path(current_user.uid), params: { suggestion: partial_variable[:suggestion_id] }, :method => :delete, data: {confirm: "Are you sure?"} %>
+          <%= button_to favorites_path(current_user.uid), params: { suggestion: partial_variable[:suggestion_id] }, :method => :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-trash"></span>
+          <% end %>
         <% else %>
-          <%= button_to "Add to Favorites", favorite_path(current_user.uid), params: { suggestion: partial_variable[:suggestion_id] }, form: { "data-type" => "json"} %>
+          <%= button_to favorite_path(current_user.uid), params: { suggestion: partial_variable[:suggestion_id] }, form: { "data-type" => "json"}, class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-heart"></span>
+          <% end %>
         <% end %>
       <% end %>
     </div>
