@@ -5,6 +5,6 @@ known_user:
   name: Adriana Cannon
 
 unknown_user:
-  provider: ""
-  uid: ""
-  name: ""
+  provider: "spotify"
+  uid: "1226771573"
+  name: "Suzanne Convertino Harrison"

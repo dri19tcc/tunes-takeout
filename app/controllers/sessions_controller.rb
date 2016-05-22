@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
 
   def new
-    
+
   end
 
   def create
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to users_path
     else
-      flash[:error] = "Nope"
+      flash[:error] = "Nope #{auth_hash.inspect}"
       redirect_to root_path
     end
   end
