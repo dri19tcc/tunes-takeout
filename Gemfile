@@ -29,7 +29,6 @@ gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'pg', '~> 0.15'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -49,12 +48,17 @@ group :development, :test do
   gem 'byebug'
   gem 'simplecov', '~> 0.11.2'
   gem 'dotenv-rails'
+  gem 'pry-rails'
+  gem 'minitest-vcr'
+  gem 'minitest-reporters'
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  gem "pry-rails"
+  # gem "pry-rails"
   gem "better_errors"
   gem "binding_of_caller"
   gem 'rails-erd'
@@ -65,5 +69,4 @@ end
 
 group :production do
   gem 'rails_12factor'
-  # gem 'pg', '~> 0.15'
 end
