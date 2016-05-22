@@ -8,8 +8,10 @@
   <%= submit_tag %>
 <% end %>
 
-<% if @suggestions %>
-  <% @suggestions.each do |suggestion| %>
-    <%= render partial: "shared/suggestions", locals: { partial_variable: suggestion, delete_button: false } %>
+<div class="row">
+  <% if @suggestions %>
+    <% @suggestions.each do |suggestion| %>
+      <%= render partial: "shared/suggestions", locals: { partial_variable: suggestion, delete_button: false } %>
+    <% end %>
   <% end %>
-<% end %>
+</div>

@@ -1,7 +1,9 @@
 <h2>Your Favorite Places to Eat and Accompanying Music </h2>
 
-<% if @your_favorites %>
-  <% @your_favorites.each do |your_favorite| %>
-    <%= render partial: "shared/suggestions", locals: { partial_variable: your_favorite, delete_button: true } %>
+<div class="row">
+  <% if @your_favorites %>
+    <% @your_favorites.each do |your_favorite| %>
+      <%= render partial: "shared/suggestions", locals: { partial_variable: your_favorite, delete_button: true } %>
+    <% end %>
   <% end %>
-<% end %>
+</div>

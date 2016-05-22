@@ -1,22 +1,48 @@
-<p>
-  <%= link_to(image_tag(partial_variable[:business_image], alt: "#{partial_variable[:business_image]} food picture"), partial_variable[:business_url], target: '_blank') %>
-  <%= partial_variable[:business_name] %>
-  <%= number_to_phone(partial_variable[:business_phone], area_code: true) %>
-  <%= image_tag(partial_variable[:business_rating_image], alt: "rating image") %>
-  You should listen to the
-  <%= partial_variable[:music_type] %> by
-  <%= link_to(partial_variable[:music_name], partial_variable[:music_url], target: '_blank') %> by
-  <%= partial_variable[:music_artist] %>
-  while you eat here!
-  <%#= link_to(image_tag(partial_variable[:music_image], width: "64", height: "64"), partial_variable[:music_url], target: '_blank') %>
 
-  <iframe src="https://embed.spotify.com/?uri=<%= partial_variable[:music_embed] %>" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+<div class="col-sm-6 col-md-4 clearfix text-center">
+  <div class="thumbnail">
+    <%= link_to(image_tag(partial_variable[:business_image], alt: "#{partial_variable[:business_image]} food picture", class: "thumnail"), partial_variable[:business_url], target: '_blank') %>
+    <div class="caption">
+      <h3><%= partial_variable[:business_name] %></h3>
+    </div>
+    <p>
+      <%= image_tag(partial_variable[:business_rating_image], alt: "rating image") %>
+      <p>
+        <%= number_to_phone(partial_variable[:business_phone], area_code: true) %>
+      </p>
+      You should listen to
+      <p>
+        <%= link_to(partial_variable[:music_name], partial_variable[:music_url], target: '_blank') %>
+      </p>
+      <p>
+        while you eat here!
+      </p>
+      <p>
+        Artist:
+        <% if partial_variable[:music_type] == "artist" %>
+          <%= partial_variable[:music_name] %>
+        <% else %>
+          <%= partial_variable[:music_artist] %>
+        <% end %>
+      </p>
+      <p>
+        Type: <%= (partial_variable[:music_type]).titleize %>
+      </p>
+      <%#= link_to(image_tag(partial_variable[:music_image], width: "64", height: "64"), partial_variable[:music_url], target: '_blank') %>
+    </p>
 
-  <% if !current_user.nil? %>
-    <% if delete_button  %>
-      <%= button_to "Delete Favorite", favorites_path(current_user.uid), params: { suggestion: partial_variable[:suggestion_id] }, :method => :delete, data: {confirm: "Are you sure?"} %>
-    <% else %>
-      <%= button_to "Add to Favorites", favorite_path(current_user.uid), params: { suggestion: partial_variable[:suggestion_id] }, form: { "data-type" => "json"} %>
-    <% end %>
-  <% end %>
-</p>
+    <p>
+      <iframe src="https://embed.spotify.com/?uri=<%= partial_variable[:music_embed] %>" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+    </p>
+
+    <div class="form-actions">
+      <% if !current_user.nil? %>
+        <% if delete_button  %>
+          <%= button_to "Delete Favorite", favorites_path(current_user.uid), params: { suggestion: partial_variable[:suggestion_id] }, :method => :delete, data: {confirm: "Are you sure?"} %>
+        <% else %>
+          <%= button_to "Add to Favorites", favorite_path(current_user.uid), params: { suggestion: partial_variable[:suggestion_id] }, form: { "data-type" => "json"} %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
