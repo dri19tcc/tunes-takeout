@@ -3,16 +3,30 @@ require 'test_helper'
 class MusicTest < ActiveSupport::TestCase
   describe "Music" do
     before do
-      @music = Music.spotify_find("")
+      @music_track = Music.spotify_find("track", "0fDFzVTG8c2fW9EM5f1RHM")
+      @music_album = Music.spotify_find("album", "1OYLLmDS0pJVFRbUo19vrG")
+      @music_artist = Music.spotify_find("artist", "0cOpQTKJdCEzz2wplnnyP6")
     end
 
-    it "Knows various attributes", :vcr do
-      assert_equal @food.business.name, "India Bistro"
-      assert_equal @food.business.phone, "2067835080"
-      assert_equal @food.business.url, "http://www.yelp.com/biz/india-bistro-seattle?utm_campaign=yelp_api&utm_medium=api_v2_business&utm_source=DOZfhe1yESBrcYsFC_c53g"
-      assert_equal @food.business.image_url, "https://s3-media2.fl.yelpcdn.com/bphoto/zr-A22q08n2GYI1CGW7yBQ/ms.jpg"
-      assert_equal @food.business.rating_img_url, "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png"
+    it "Knows various track attributes", :vcr do
+      assert_equal @music_track.name, "Indian Food"
+      assert_equal @music_track.type, "track"
+      assert_equal @music_track.uri, "spotify:track:0fDFzVTG8c2fW9EM5f1RHM"
+      assert_equal @music_track.external_urls["spotify"], "https://open.spotify.com/track/0fDFzVTG8c2fW9EM5f1RHM"
+    end
+
+    it "Knows various album attributes", :vcr do
+      assert_equal @music_album.name, "Thunderbox"
+      assert_equal @music_album.type, "album"
+      assert_equal @music_album.uri, "spotify:album:1OYLLmDS0pJVFRbUo19vrG"
+      assert_equal @music_album.external_urls["spotify"], "https://open.spotify.com/album/1OYLLmDS0pJVFRbUo19vrG"
+    end
+
+    it "Knows various artist attributes", :vcr do
+      assert_equal @music_artist.name, "Miso Banana Trio"
+      assert_equal @music_artist.type, "artist"
+      assert_equal @music_artist.uri, "spotify:artist:0cOpQTKJdCEzz2wplnnyP6"
+      assert_equal @music_artist.external_urls["spotify"], "https://open.spotify.com/artist/0cOpQTKJdCEzz2wplnnyP6"
     end
   end
-end
 end

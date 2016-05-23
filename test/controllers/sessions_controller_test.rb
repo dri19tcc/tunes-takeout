@@ -1,7 +1,8 @@
 # require 'test_helper'
 #
 # class SessionsControllerTest < ActionController::TestCase
-#   # test "the truth" do
-#   #   assert true
-#   # end
+  # test "should go to home#index" do
+  #   get :index
+  # end
+
 # end

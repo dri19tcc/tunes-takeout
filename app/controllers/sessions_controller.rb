@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to users_path
     else
-      flash[:error] = "Nope #{auth_hash.inspect}"
+      flash[:notice] = "Nope"
       redirect_to root_path
     end
   end
